@@ -33,9 +33,24 @@ win32gui.SetWindowPos(hwnd, win32con.HWND_TOPMOST, 0,0,0,0, win32con.SWP_NOMOVE 
 
 '''
 ADD TO UI
+        # Copy Paste into UI
+        MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
+        MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        MainWindow.showMaximized()
 
-    MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-    MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.exitButton.clicked.connect(lambda: exit())
+        self.listWidget.addItem("hiffffffffffffffffffffffffffqdqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqffffffffffffffff")
+        self.listWidget.addItem("Titel2")
+
+        def setAATDFrame(value):
+                self.frame_2.setHidden(value)
+
+        def addToDo():
+                print(self.titleInput.text())
+
+        setAATDFrame(True)
+        self.addButton.clicked.connect(lambda: setAATDFrame(False))
+        self.aatdCancelButton.clicked.connect(lambda: addToDo())
 
 '''
 

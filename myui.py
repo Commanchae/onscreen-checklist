@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
 "    border: 2px solid black;\n"
 "    border-radius: 2px;\n"
 "}\n"
-"QListView{\n"
+"QListWidget{\n"
 "    border: none;\n"
 "background-color: \"#20C0FF\"\n"
 "}\n"
@@ -59,14 +59,41 @@ class Ui_MainWindow(object):
         self.exitButton.setGeometry(QtCore.QRect(150, 186, 71, 51))
         self.exitButton.setStyleSheet("")
         self.exitButton.setObjectName("exitButton")
-        self.listView = QtWidgets.QListView(self.frame)
-        self.listView.setGeometry(QtCore.QRect(10, 10, 211, 171))
-        self.listView.setObjectName("listView")
         self.removeButton = QtWidgets.QPushButton(self.frame)
         self.removeButton.setEnabled(False)
         self.removeButton.setGeometry(QtCore.QRect(80, 186, 71, 51))
         self.removeButton.setStyleSheet("")
         self.removeButton.setObjectName("removeButton")
+        self.listWidget = QtWidgets.QListWidget(self.frame)
+        self.listWidget.setGeometry(QtCore.QRect(10, 10, 211, 171))
+        self.listWidget.setStyleSheet("QListWidget{\n"
+"    color: white;\n"
+"    font-family: Lucida\n"
+"    \n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar{\n"
+"    background-color: \"#63D3FF\";\n"
+"}\n"
+"QScrollBar::add-line:horizontal {\n"
+"      border: none;\n"
+"      background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:horizontal {\n"
+"      border: none;\n"
+"      background: none;\n"
+"}\n"
+"QScrollBar::handle{\n"
+"    border: 1px solid \"#63DFFFF\";\n"
+"    background-color: \"#20C0FF\"\n"
+"}\n"
+"QScrollBar::handle::pressed{\n"
+"    border: 1.5px solid black;\n"
+"    \n"
+"}")
+        self.listWidget.setObjectName("listWidget")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         self.frame_2.setEnabled(True)
         self.frame_2.setGeometry(QtCore.QRect(0, 510, 241, 261))
@@ -136,6 +163,43 @@ class Ui_MainWindow(object):
         self.aatdCancelButton.setGeometry(QtCore.QRect(130, 220, 93, 28))
         self.aatdCancelButton.setStyleSheet("")
         self.aatdCancelButton.setObjectName("aatdCancelButton")
+        self.frame_3 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_3.setGeometry(QtCore.QRect(0, 510, 241, 261))
+        self.frame_3.setStyleSheet("QFrame{\n"
+"    background-color: \"#20C0FF\"\n"
+"    border: 2px solid black;\n"
+"    border-radius: 2px;\n"
+"}")
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.textBrowser = QtWidgets.QTextBrowser(self.frame_3)
+        self.textBrowser.setGeometry(QtCore.QRect(10, 10, 221, 241))
+        self.textBrowser.setStyleSheet("QTextBrowser{\n"
+"    background-color: \"#63D3FF\";\n"
+"    border: none;\n"
+"    color: black;\n"
+"}\n"
+"QScrollBar{\n"
+"    background-color: \"#63D3FF\";\n"
+"}\n"
+"QScrollBar::add-line:horizontal {\n"
+"      border: none;\n"
+"      background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:horizontal {\n"
+"      border: none;\n"
+"      background: none;\n"
+"}\n"
+"QScrollBar::handle{\n"
+"    border: 1px solid \"#63DFFFF\";\n"
+"    background-color: \"#20C0FF\"\n"
+"}\n"
+"QScrollBar::handle::pressed{\n"
+"    border: 1.5px solid black;\n"
+"}")
+        self.textBrowser.setObjectName("textBrowser")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -143,6 +207,33 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        # Copy Paste into UI
+        MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
+        MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        MainWindow.showMaximized()
+
+        self.to_do_list = []
+
+        self.exitButton.clicked.connect(lambda: exit())
+
+        def setAATDFrame(value):
+                self.frame_2.setHidden(value)
+
+        def addToDo(flag):
+                if (flag != "cancel"):
+                        self.to_do_list.append({"TITLE": self.titleInput.text(), "INFO": self.infoInput.toPlainText()})
+                        self.listWidget.addItem(" • " + self.titleInput.text())
+                self.infoInput.clear()
+                self.titleInput.setText("")
+                setAATDFrame(True)
+
+
+        setAATDFrame(True)
+        self.frame_3.setHidden(True)
+        self.addButton.clicked.connect(lambda: setAATDFrame(False))
+        self.aatdDoneButton.clicked.connect(lambda: addToDo(""))
+        self.aatdCancelButton.clicked.connect(lambda: addToDo("cancel"))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -155,6 +246,11 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "INFO:"))
         self.aatdDoneButton.setText(_translate("MainWindow", "DONE"))
         self.aatdCancelButton.setText(_translate("MainWindow", "CANCEL"))
+        self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
 
 
 if __name__ == "__main__":
