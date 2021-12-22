@@ -16,7 +16,17 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1526, 864)
         MainWindow.setAutoFillBackground(False)
-        MainWindow.setStyleSheet("background-color: (12,34,56)")
+        MainWindow.setStyleSheet("QPushButton#exitButton, QPushButton#minimizeButton, QPushButton#descriptionMinimizeButton{\n"
+"    background-color: \"#63D3FF\";\n"
+"    border-radius: 2px;\n"
+"    border: 1px solid black;\n"
+"    color: white;\n"
+"    \n"
+"}\n"
+"\n"
+"QPushButton#exitButtonM{\n"
+"    background-color: red;\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
@@ -24,8 +34,8 @@ class Ui_MainWindow(object):
         self.frame.setGeometry(QtCore.QRect(0, 260, 231, 241))
         self.frame.setStyleSheet("QFrame{\n"
 "    background-color: \"#63D3FF\";\n"
-"    border: 2px solid black;\n"
-"    border-radius: 2px;\n"
+"    border: 1px solid black;\n"
+"    border-radius:10px;\n"
 "}\n"
 "QListWidget{\n"
 "    border: none;\n"
@@ -35,7 +45,7 @@ class Ui_MainWindow(object):
 "QPushButton{\n"
 "    background-color: \"#63D3FF\";\n"
 "    border: 2px solid white;\n"
-"    border-radius: 2px;\n"
+"    border-radius: 20px;\n"
 "    color: white;\n"
 "    font-family: Monospace \"Courier New\";\n"
 "    font-weight: bold;\n"
@@ -52,16 +62,12 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.addButton = QtWidgets.QPushButton(self.frame)
-        self.addButton.setGeometry(QtCore.QRect(10, 186, 71, 51))
+        self.addButton.setGeometry(QtCore.QRect(16, 187, 71, 48))
         self.addButton.setStyleSheet("")
         self.addButton.setObjectName("addButton")
-        self.exitButton = QtWidgets.QPushButton(self.frame)
-        self.exitButton.setGeometry(QtCore.QRect(150, 186, 71, 51))
-        self.exitButton.setStyleSheet("")
-        self.exitButton.setObjectName("exitButton")
         self.removeButton = QtWidgets.QPushButton(self.frame)
         self.removeButton.setEnabled(False)
-        self.removeButton.setGeometry(QtCore.QRect(80, 186, 71, 51))
+        self.removeButton.setGeometry(QtCore.QRect(145, 186, 71, 51))
         self.removeButton.setStyleSheet("")
         self.removeButton.setObjectName("removeButton")
         self.listWidget = QtWidgets.QListWidget(self.frame)
@@ -99,8 +105,8 @@ class Ui_MainWindow(object):
         self.frame_2.setGeometry(QtCore.QRect(0, 510, 241, 261))
         self.frame_2.setStyleSheet("QFrame{\n"
 "    background-color: \"#63D3FF\";\n"
-"    border: 2px solid black;\n"
-"    border-radius: 2px;\n"
+"    border: 1px solid black;\n"
+"    border-radius: 10px;\n"
 "}\n"
 "/* Make code for the input boxes and the labels\n"
 " */\n"
@@ -164,42 +170,48 @@ class Ui_MainWindow(object):
         self.aatdCancelButton.setStyleSheet("")
         self.aatdCancelButton.setObjectName("aatdCancelButton")
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_3.setGeometry(QtCore.QRect(0, 510, 241, 261))
+        self.frame_3.setGeometry(QtCore.QRect(1, 510, 240, 261))
         self.frame_3.setStyleSheet("QFrame{\n"
 "    background-color: \"#20C0FF\"\n"
-"    border: 2px solid black;\n"
-"    border-radius: 2px;\n"
-"}")
+"    border: 1px solid black;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        self.textBrowser = QtWidgets.QTextBrowser(self.frame_3)
-        self.textBrowser.setGeometry(QtCore.QRect(10, 10, 221, 241))
-        self.textBrowser.setStyleSheet("QTextBrowser{\n"
-"    background-color: \"#63D3FF\";\n"
-"    border: none;\n"
-"    color: black;\n"
-"}\n"
-"QScrollBar{\n"
-"    background-color: \"#63D3FF\";\n"
-"}\n"
-"QScrollBar::add-line:horizontal {\n"
-"      border: none;\n"
-"      background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:horizontal {\n"
-"      border: none;\n"
-"      background: none;\n"
-"}\n"
-"QScrollBar::handle{\n"
-"    border: 1px solid \"#63DFFFF\";\n"
-"    background-color: \"#20C0FF\"\n"
-"}\n"
-"QScrollBar::handle::pressed{\n"
-"    border: 1.5px solid black;\n"
+        self.descriptionBox = QtWidgets.QTextEdit(self.frame_3)
+        self.descriptionBox.setGeometry(QtCore.QRect(0, 0, 240, 260))
+        self.descriptionBox.setStyleSheet("background-color: \"#63D3FF\";\n"
+"font-size: 16px;\n"
+"color: black;\n"
+"border-radius: 10px;")
+        self.descriptionBox.setReadOnly(True)
+        self.descriptionBox.setObjectName("descriptionBox")
+        self.exitButton = QtWidgets.QPushButton(self.centralwidget)
+        self.exitButton.setGeometry(QtCore.QRect(200, 230, 31, 28))
+        self.exitButton.setStyleSheet("QPushButton#exitButton{\n"
+"    background-color: red;\n"
 "}")
-        self.textBrowser.setObjectName("textBrowser")
+        self.exitButton.setObjectName("exitButton")
+        self.minimizeButton = QtWidgets.QPushButton(self.centralwidget)
+        self.minimizeButton.setGeometry(QtCore.QRect(164, 230, 31, 28))
+        self.minimizeButton.setObjectName("minimizeButton")
+        self.returnButton = QtWidgets.QPushButton(self.centralwidget)
+        self.returnButton.setGeometry(QtCore.QRect(0, 420, 21, 171))
+        self.returnButton.setStyleSheet("QPushButton{\n"
+"    color: white;\n"
+"    background-color: \"#63D3FF\";\n"
+"    font-size: 20px;\n"
+"    border: 1px solid black;\n"
+"    border-radius:5px;\n"
+"\n"
+"    \n"
+"}")
+        self.returnButton.setObjectName("returnButton")
+        self.descriptionMinimizeButton = QtWidgets.QPushButton(self.centralwidget)
+        self.descriptionMinimizeButton.setGeometry(QtCore.QRect(245, 510, 31, 30))
+        self.descriptionMinimizeButton.setObjectName("descriptionMinimizeButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -208,14 +220,33 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        # Copy Paste into UI
+  # Copy Paste into UI
+
+        # Comment code and make it readable.
+        # Possibly add a minimize button for the description box.
         MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
         MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         MainWindow.showMaximized()
 
         self.to_do_list = []
+        self.selectedItem = None
+        self.returnButton.setHidden(True)
+        self.descriptionMinimizeButton.setHidden(True)
 
-        self.exitButton.clicked.connect(lambda: exit())
+        def minimizeUI():
+                self.frame.setHidden(True)
+                self.minimizeButton.setHidden(True)
+                self.exitButton.setHidden(True)
+                self.frame_2.setHidden(True)
+                self.frame_3.setHidden(True)
+                self.descriptionMinimizeButton.setHidden(True)
+                self.returnButton.setHidden(False)
+        
+        def returnUI():
+                self.frame.setHidden(False)
+                self.returnButton.setHidden(True)
+                self.minimizeButton.setHidden(False)
+                self.exitButton.setHidden(False)
 
         def setAATDFrame(value):
                 self.frame_2.setHidden(value)
@@ -228,29 +259,59 @@ class Ui_MainWindow(object):
                 self.titleInput.setText("")
                 setAATDFrame(True)
 
+        def removeItem():
+                currentRowValue = self.listWidget.currentRow()
+                self.listWidget.takeItem(currentRowValue)
+                del self.to_do_list[currentRowValue]
+                self.removeButton.setEnabled(False)
+                self.frame_3.setHidden(True)
+                self.descriptionMinimizeButton.setHidden(True)
+                self.descriptionBox.setText("")
+
+        def listWidgetClicked(item):
+                currentRowValue = self.listWidget.currentRow()
+                self.selectedItem = self.to_do_list[currentRowValue]
+                self.removeButton.setEnabled(True)
+                self.frame_2.setHidden(True)
+                self.frame_3.setHidden(False)
+                self.descriptionMinimizeButton.setHidden(False)
+                self.descriptionBox.setText(self.selectedItem["INFO"])
+                
+        def addButtonClicked():
+                setAATDFrame(False)
+                self.frame_3.setHidden(True)
+
+        def minimizeDescription():
+                self.descriptionMinimizeButton.setHidden(True)
+                self.frame_3.setHidden(True)
+                self.descriptionBox.setText("")
 
         setAATDFrame(True)
         self.frame_3.setHidden(True)
-        self.addButton.clicked.connect(lambda: setAATDFrame(False))
+        self.addButton.clicked.connect(lambda: addButtonClicked())
         self.aatdDoneButton.clicked.connect(lambda: addToDo(""))
         self.aatdCancelButton.clicked.connect(lambda: addToDo("cancel"))
+        self.minimizeButton.clicked.connect(lambda: minimizeUI())
+        self.returnButton.clicked.connect(lambda: returnUI())
+        self.exitButton.clicked.connect(lambda: exit())
+        self.listWidget.itemClicked.connect(lambda item: listWidgetClicked(item))
+        self.removeButton.clicked.connect(lambda: removeItem())
+        self.descriptionMinimizeButton.clicked.connect(lambda: minimizeDescription())
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.addButton.setText(_translate("MainWindow", "ADD"))
-        self.exitButton.setText(_translate("MainWindow", "EXIT"))
         self.removeButton.setText(_translate("MainWindow", "REMOVE"))
         self.label.setText(_translate("MainWindow", "ADD A TO-DO"))
         self.label_2.setText(_translate("MainWindow", "TITLE:"))
         self.label_3.setText(_translate("MainWindow", "INFO:"))
         self.aatdDoneButton.setText(_translate("MainWindow", "DONE"))
         self.aatdCancelButton.setText(_translate("MainWindow", "CANCEL"))
-        self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.exitButton.setText(_translate("MainWindow", "X"))
+        self.minimizeButton.setText(_translate("MainWindow", "-"))
+        self.returnButton.setText(_translate("MainWindow", "O"))
+        self.descriptionMinimizeButton.setText(_translate("MainWindow", "-"))
 
 
 if __name__ == "__main__":
