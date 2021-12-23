@@ -16,22 +16,12 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1526, 864)
         MainWindow.setAutoFillBackground(False)
-        MainWindow.setStyleSheet("QPushButton#exitButton, QPushButton#minimizeButton, QPushButton#descriptionMinimizeButton{\n"
-"    background-color: \"#63D3FF\";\n"
-"    border-radius: 2px;\n"
-"    border: 1px solid black;\n"
-"    color: white;\n"
-"    \n"
-"}\n"
-"\n"
-"QPushButton#exitButtonM{\n"
-"    background-color: red;\n"
-"}")
+        MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setEnabled(True)
-        self.frame.setGeometry(QtCore.QRect(0, 260, 231, 241))
+        self.frame.setGeometry(QtCore.QRect(0, 209, 231, 291))
         self.frame.setStyleSheet("QFrame{\n"
 "    background-color: \"#63D3FF\";\n"
 "    border: 1px solid black;\n"
@@ -50,28 +40,46 @@ class Ui_MainWindow(object):
 "    font-family: Monospace \"Courier New\";\n"
 "    font-weight: bold;\n"
 "}\n"
+"\n"
+"/*\n"
 "QPushButton:hover{\n"
 "    font-size: 15px;\n"
 "    background-color: \"#20C0FF\";\n"
 "}\n"
+"*/\n"
 "\n"
 "QPushButton:disabled{\n"
 "background-color: gray;\n"
-"}")
+"}\n"
+"\n"
+"\n"
+"QPushButton#exitButton, QPushButton#minimizeButton, QPushButton#descriptionMinimizeButton{\n"
+"    background-color: \"#63D3FF\";\n"
+"    border-radius: 2px;\n"
+"    border: 1px solid black;\n"
+"    color: white;\n"
+"    \n"
+"}\n"
+"\n"
+"QPushButton#exitButtonM{\n"
+"    background-color: red;\n"
+"}\n"
+"\n"
+"")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.addButton = QtWidgets.QPushButton(self.frame)
-        self.addButton.setGeometry(QtCore.QRect(16, 187, 71, 48))
+        self.addButton.setGeometry(QtCore.QRect(16, 237, 71, 48))
         self.addButton.setStyleSheet("")
         self.addButton.setObjectName("addButton")
         self.removeButton = QtWidgets.QPushButton(self.frame)
         self.removeButton.setEnabled(False)
-        self.removeButton.setGeometry(QtCore.QRect(145, 186, 71, 51))
+        self.removeButton.setGeometry(QtCore.QRect(145, 237, 71, 51))
         self.removeButton.setStyleSheet("")
         self.removeButton.setObjectName("removeButton")
         self.listWidget = QtWidgets.QListWidget(self.frame)
-        self.listWidget.setGeometry(QtCore.QRect(10, 10, 211, 171))
+        self.listWidget.setGeometry(QtCore.QRect(10, 60, 211, 171))
         self.listWidget.setStyleSheet("QListWidget{\n"
 "    color: white;\n"
 "    font-family: Lucida\n"
@@ -100,9 +108,18 @@ class Ui_MainWindow(object):
 "    \n"
 "}")
         self.listWidget.setObjectName("listWidget")
+        self.minimizeButton = QtWidgets.QPushButton(self.frame)
+        self.minimizeButton.setGeometry(QtCore.QRect(160, 20, 31, 28))
+        self.minimizeButton.setObjectName("minimizeButton")
+        self.exitButton = QtWidgets.QPushButton(self.frame)
+        self.exitButton.setGeometry(QtCore.QRect(195, 20, 31, 28))
+        self.exitButton.setStyleSheet("QPushButton#exitButton{\n"
+"    background-color: red;\n"
+"}")
+        self.exitButton.setObjectName("exitButton")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         self.frame_2.setEnabled(True)
-        self.frame_2.setGeometry(QtCore.QRect(0, 510, 241, 261))
+        self.frame_2.setGeometry(QtCore.QRect(0, 510, 241, 301))
         self.frame_2.setStyleSheet("QFrame{\n"
 "    background-color: \"#63D3FF\";\n"
 "    border: 1px solid black;\n"
@@ -133,10 +150,12 @@ class Ui_MainWindow(object):
 "    font-family: Monospace \"Courier New\";\n"
 "    font-weight: bold;\n"
 "}\n"
+"/*\n"
 "QPushButton:hover{\n"
 "    font-size: 15px;\n"
 "    background-color: \"#20C0FF\";\n"
 "}\n"
+"*/\n"
 "\n"
 "QPushButton:disabled{\n"
 "background-color: gray;\n"
@@ -151,28 +170,55 @@ class Ui_MainWindow(object):
         self.titleInput = QtWidgets.QLineEdit(self.frame_2)
         self.titleInput.setGeometry(QtCore.QRect(10, 60, 211, 22))
         self.titleInput.setObjectName("titleInput")
-        self.label_2 = QtWidgets.QLabel(self.frame_2)
-        self.label_2.setGeometry(QtCore.QRect(20, 38, 151, 21))
-        self.label_2.setStyleSheet("border: none;")
-        self.label_2.setObjectName("label_2")
+        self.titleLabel = QtWidgets.QLabel(self.frame_2)
+        self.titleLabel.setGeometry(QtCore.QRect(17, 38, 151, 21))
+        self.titleLabel.setStyleSheet("border: none;")
+        self.titleLabel.setObjectName("titleLabel")
         self.infoInput = QtWidgets.QTextEdit(self.frame_2)
-        self.infoInput.setGeometry(QtCore.QRect(10, 110, 211, 87))
+        self.infoInput.setGeometry(QtCore.QRect(10, 110, 211, 61))
         self.infoInput.setObjectName("infoInput")
-        self.label_3 = QtWidgets.QLabel(self.frame_2)
-        self.label_3.setGeometry(QtCore.QRect(20, 89, 151, 21))
-        self.label_3.setStyleSheet("border: none;")
-        self.label_3.setObjectName("label_3")
+        self.infoLabel = QtWidgets.QLabel(self.frame_2)
+        self.infoLabel.setGeometry(QtCore.QRect(19, 89, 151, 21))
+        self.infoLabel.setStyleSheet("border: none;")
+        self.infoLabel.setObjectName("infoLabel")
         self.aatdDoneButton = QtWidgets.QPushButton(self.frame_2)
-        self.aatdDoneButton.setGeometry(QtCore.QRect(10, 220, 93, 28))
+        self.aatdDoneButton.setGeometry(QtCore.QRect(10, 260, 93, 28))
         self.aatdDoneButton.setObjectName("aatdDoneButton")
         self.aatdCancelButton = QtWidgets.QPushButton(self.frame_2)
-        self.aatdCancelButton.setGeometry(QtCore.QRect(130, 220, 93, 28))
+        self.aatdCancelButton.setGeometry(QtCore.QRect(130, 260, 93, 28))
         self.aatdCancelButton.setStyleSheet("")
         self.aatdCancelButton.setObjectName("aatdCancelButton")
+        self.importanceSlider = QtWidgets.QSlider(self.frame_2)
+        self.importanceSlider.setGeometry(QtCore.QRect(20, 200, 161, 22))
+        self.importanceSlider.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.importanceSlider.setInputMethodHints(QtCore.Qt.ImhDigitsOnly)
+        self.importanceSlider.setMinimum(0)
+        self.importanceSlider.setMaximum(5)
+        self.importanceSlider.setProperty("value", 0)
+        self.importanceSlider.setOrientation(QtCore.Qt.Horizontal)
+        self.importanceSlider.setObjectName("importanceSlider")
+        self.importanceBar = QtWidgets.QProgressBar(self.frame_2)
+        self.importanceBar.setGeometry(QtCore.QRect(20, 227, 171, 23))
+        self.importanceBar.setStyleSheet("QProgressBar::chunk{\n"
+"    background-color: \"#20C0FF\";\n"
+"    border: 1px solid black;\n"
+"    width: 30px;\n"
+"    margin: 0.5px;\n"
+"\n"
+"}")
+        self.importanceBar.setMinimum(0)
+        self.importanceBar.setMaximum(5)
+        self.importanceBar.setProperty("value", 0)
+        self.importanceBar.setTextVisible(False)
+        self.importanceBar.setObjectName("importanceBar")
+        self.importanceLabel = QtWidgets.QLabel(self.frame_2)
+        self.importanceLabel.setGeometry(QtCore.QRect(19, 180, 101, 16))
+        self.importanceLabel.setStyleSheet("border: none;")
+        self.importanceLabel.setObjectName("importanceLabel")
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
         self.frame_3.setGeometry(QtCore.QRect(1, 510, 240, 261))
         self.frame_3.setStyleSheet("QFrame{\n"
-"    background-color: \"#20C0FF\"\n"
+"    background-color: \"#63D3FF\";\n"
 "    border: 1px solid black;\n"
 "    border-radius: 10px;\n"
 "}\n"
@@ -181,22 +227,33 @@ class Ui_MainWindow(object):
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
         self.descriptionBox = QtWidgets.QTextEdit(self.frame_3)
-        self.descriptionBox.setGeometry(QtCore.QRect(0, 0, 240, 260))
-        self.descriptionBox.setStyleSheet("background-color: \"#63D3FF\";\n"
+        self.descriptionBox.setGeometry(QtCore.QRect(10, 29, 221, 191))
+        self.descriptionBox.setStyleSheet("background-color: \"#20C0FF\";\n"
 "font-size: 16px;\n"
 "color: black;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"border: 1px solid black;")
         self.descriptionBox.setReadOnly(True)
         self.descriptionBox.setObjectName("descriptionBox")
-        self.exitButton = QtWidgets.QPushButton(self.centralwidget)
-        self.exitButton.setGeometry(QtCore.QRect(200, 230, 31, 28))
-        self.exitButton.setStyleSheet("QPushButton#exitButton{\n"
-"    background-color: red;\n"
+        self.descriptionLabel = QtWidgets.QLabel(self.frame_3)
+        self.descriptionLabel.setGeometry(QtCore.QRect(5, 7, 91, 16))
+        self.descriptionLabel.setStyleSheet("border: none;\n"
+"color: white;\n"
+"font-weight: bold;")
+        self.descriptionLabel.setObjectName("descriptionLabel")
+        self.descriptionImportanceBar = QtWidgets.QProgressBar(self.frame_3)
+        self.descriptionImportanceBar.setGeometry(QtCore.QRect(10, 230, 220, 23))
+        self.descriptionImportanceBar.setStyleSheet("QProgressBar::chunk{\n"
+"    background-color: \"red\";\n"
+"    border: 1px solid black;\n"
+"    width: 40px;\n"
+"    margin: 0.5px;\n"
+"\n"
 "}")
-        self.exitButton.setObjectName("exitButton")
-        self.minimizeButton = QtWidgets.QPushButton(self.centralwidget)
-        self.minimizeButton.setGeometry(QtCore.QRect(164, 230, 31, 28))
-        self.minimizeButton.setObjectName("minimizeButton")
+        self.descriptionImportanceBar.setMaximum(5)
+        self.descriptionImportanceBar.setProperty("value", 5)
+        self.descriptionImportanceBar.setTextVisible(False)
+        self.descriptionImportanceBar.setObjectName("descriptionImportanceBar")
         self.returnButton = QtWidgets.QPushButton(self.centralwidget)
         self.returnButton.setGeometry(QtCore.QRect(0, 420, 21, 171))
         self.returnButton.setStyleSheet("QPushButton{\n"
@@ -211,7 +268,43 @@ class Ui_MainWindow(object):
         self.returnButton.setObjectName("returnButton")
         self.descriptionMinimizeButton = QtWidgets.QPushButton(self.centralwidget)
         self.descriptionMinimizeButton.setGeometry(QtCore.QRect(245, 510, 31, 30))
+        self.descriptionMinimizeButton.setStyleSheet("QPushButton#descriptionMinimizeButton{\n"
+"    background-color: \"#63D3FF\";\n"
+"    border-radius: 2px;\n"
+"    border: 1px solid black;\n"
+"    color: white;\n"
+"    \n"
+"}")
         self.descriptionMinimizeButton.setObjectName("descriptionMinimizeButton")
+        self.sortByBox = QtWidgets.QComboBox(self.centralwidget)
+        self.sortByBox.setGeometry(QtCore.QRect(17, 230, 139, 28))
+        self.sortByBox.setStyleSheet("QComboBox#sortByBox{\n"
+"    background-color: \"#20C0FF\";\n"
+"    color: white;\n"
+"    border: 1px solid black;\n"
+"    border-radius: 3px;\n"
+"}\n"
+"QComboBox::item{\n"
+"    background-color: \"#20C0FF\";\n"
+"    color: white;\n"
+"}")
+        self.sortByBox.setObjectName("sortByBox")
+        self.sortByBox.addItem("")
+        self.sortByBox.addItem("")
+        self.sortByLabel = QtWidgets.QLabel(self.centralwidget)
+        self.sortByLabel.setGeometry(QtCore.QRect(17, 211, 55, 16))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.sortByLabel.setFont(font)
+        self.sortByLabel.setObjectName("sortByLabel")
+        self.returnButton.raise_()
+        self.frame.raise_()
+        self.frame_2.raise_()
+        self.descriptionMinimizeButton.raise_()
+        self.sortByBox.raise_()
+        self.sortByLabel.raise_()
+        self.frame_3.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -220,9 +313,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-  # Copy Paste into UI
-
-        # Comment code and make it readable.
+ # Comment code and make it readable.
         # Possibly add a minimize button for the description box.
         MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
         MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
@@ -241,22 +332,29 @@ class Ui_MainWindow(object):
                 self.frame_3.setHidden(True)
                 self.descriptionMinimizeButton.setHidden(True)
                 self.returnButton.setHidden(False)
+
+                self.sortByBox.setHidden(True)
+                self.sortByLabel.setHidden(True)
         
         def returnUI():
                 self.frame.setHidden(False)
                 self.returnButton.setHidden(True)
                 self.minimizeButton.setHidden(False)
                 self.exitButton.setHidden(False)
+                self.sortByBox.setHidden(False)
+                self.sortByLabel.setHidden(False)
 
         def setAATDFrame(value):
                 self.frame_2.setHidden(value)
 
         def addToDo(flag):
                 if (flag != "cancel"):
-                        self.to_do_list.append({"TITLE": self.titleInput.text(), "INFO": self.infoInput.toPlainText()})
-                        self.listWidget.addItem(" • " + self.titleInput.text())
+                        self.to_do_list.append({"TITLE": self.titleInput.text(), "INFO": self.infoInput.toPlainText(), "IMPORTANCE": self.importanceSlider.value()})
+                        self.listWidget.addItem(" • " + self.titleInput.text() + " | IMP: " + str(self.importanceSlider.value()))
                 self.infoInput.clear()
                 self.titleInput.setText("")
+                self.importanceSlider.setValue(0)
+                self.importanceBar.setValue(0)
                 setAATDFrame(True)
 
         def removeItem():
@@ -276,6 +374,7 @@ class Ui_MainWindow(object):
                 self.frame_3.setHidden(False)
                 self.descriptionMinimizeButton.setHidden(False)
                 self.descriptionBox.setText(self.selectedItem["INFO"])
+                self.descriptionImportanceBar.setValue(self.selectedItem["IMPORTANCE"])
                 
         def addButtonClicked():
                 setAATDFrame(False)
@@ -285,6 +384,11 @@ class Ui_MainWindow(object):
                 self.descriptionMinimizeButton.setHidden(True)
                 self.frame_3.setHidden(True)
                 self.descriptionBox.setText("")
+
+        # Add Button Animation --> DO IT LAST
+
+        def importanceSliderChanged():
+                self.importanceBar.setValue(self.importanceSlider.value())
 
         setAATDFrame(True)
         self.frame_3.setHidden(True)
@@ -297,21 +401,28 @@ class Ui_MainWindow(object):
         self.listWidget.itemClicked.connect(lambda item: listWidgetClicked(item))
         self.removeButton.clicked.connect(lambda: removeItem())
         self.descriptionMinimizeButton.clicked.connect(lambda: minimizeDescription())
+        self.importanceSlider.valueChanged.connect(lambda: importanceSliderChanged())
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.addButton.setText(_translate("MainWindow", "ADD"))
         self.removeButton.setText(_translate("MainWindow", "REMOVE"))
+        self.minimizeButton.setText(_translate("MainWindow", "-"))
+        self.exitButton.setText(_translate("MainWindow", "X"))
         self.label.setText(_translate("MainWindow", "ADD A TO-DO"))
-        self.label_2.setText(_translate("MainWindow", "TITLE:"))
-        self.label_3.setText(_translate("MainWindow", "INFO:"))
+        self.titleLabel.setText(_translate("MainWindow", "TITLE:"))
+        self.infoLabel.setText(_translate("MainWindow", "INFO:"))
         self.aatdDoneButton.setText(_translate("MainWindow", "DONE"))
         self.aatdCancelButton.setText(_translate("MainWindow", "CANCEL"))
-        self.exitButton.setText(_translate("MainWindow", "X"))
-        self.minimizeButton.setText(_translate("MainWindow", "-"))
+        self.importanceLabel.setText(_translate("MainWindow", "IMPORTANCE:"))
+        self.descriptionLabel.setText(_translate("MainWindow", "DESCRIPTION"))
         self.returnButton.setText(_translate("MainWindow", "O"))
         self.descriptionMinimizeButton.setText(_translate("MainWindow", "-"))
+        self.sortByBox.setItemText(0, _translate("MainWindow", "IMPORTANCE"))
+        self.sortByBox.setItemText(1, _translate("MainWindow", "DATE"))
+        self.sortByLabel.setText(_translate("MainWindow", "SORT BY:"))
 
 
 if __name__ == "__main__":
